@@ -7,4 +7,6 @@ import cmps from './components'
 import './style/index.less'
 import 'ant-design-vue/dist/antd.css'
 
-createApp(App).use(router).use(AntD).use(cmps).mount('#app')
+const app = createApp(App)
+
+app.use(router).use(AntD).use(cmps).mount('#app')
