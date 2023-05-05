@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <div>
-      <ani-fullscreen />
-    </div>
-  </div>
+  <router-view></router-view>
 </template>
 
-<script setup lang="ts">
-import AniFullscreen from './components/ani-fullscreen/demo.vue'
-</script>
+<script setup lang="ts"></script>
