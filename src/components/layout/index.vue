@@ -44,7 +44,7 @@ const state = reactive({
 
 onMounted(() => {
   const gitalk = new Gitalk({
-    id: md5(location.href),
+    id: md5(location.pathname + location.search),
     owner: 'hanbaoshashou',
     repo: 'hanbaoshashou.github.io',
     admin: ['hanbaoshashou'],
