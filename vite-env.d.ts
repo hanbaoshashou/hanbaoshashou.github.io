@@ -14,6 +14,6 @@ declare module 'querystring-es3' {
   export default any
 }
 
-declare module 'gitment' {
+declare module 'gitalk' {
   export default any
 }

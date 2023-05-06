@@ -33,25 +33,26 @@
 <script setup lang="ts">
 import { reactive, toRefs, onMounted } from 'vue'
 import { GithubOutlined, MailOutlined } from '@ant-design/icons-vue'
-import Gitment from 'gitment'
-
-import 'gitment/style/default.css'
+import Gitalk from 'gitalk'
+import { initAnalysis } from '@/util'
+import 'gitalk/dist/gitalk.css'
 
 const state = reactive({
   selectedKeys: [],
 })
 
 onMounted(() => {
-  const gitment = new Gitment({
+  const gitalk = new Gitalk({
+    id: location.href,
     owner: 'hanbaoshashou',
     repo: 'hanbaoshashou.github.io',
-    oauth: {
-      client_id: 'a9506f0e3f077d86638c',
-      client_secret: 'bf5273a1f06358b86398f538c6e20976e98c9cff',
-    },
+    clientId: 'a9506f0e3f077d86638c',
+    clientSecret: 'bf5273a1f06358b86398f538c6e20976e98c9cff',
   })
 
-  gitment.render('container')
+  gitalk.render('container')
+
+  initAnalysis()
 })
 
 const { selectedKeys } = toRefs(state)
