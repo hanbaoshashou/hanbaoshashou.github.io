@@ -44,7 +44,7 @@ const state = reactive({
 onMounted(() => {
   const gitment = new Gitment({
     owner: 'hanbaoshashou',
-    repo: 'hanbaoshashou.github.io ',
+    repo: 'hanbaoshashou.github.io',
     oauth: {
       client_id: 'a9506f0e3f077d86638c',
       client_secret: 'bf5273a1f06358b86398f538c6e20976e98c9cff',
