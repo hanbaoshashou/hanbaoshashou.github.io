@@ -1,5 +1,9 @@
 <template>
-  <div v-html="html"></div>
+  <layout>
+    <div class="page">
+      <div class="md" v-html="html"></div>
+    </div>
+  </layout>
 </template>
 
 <script setup lang="ts">
@@ -43,4 +47,17 @@ async function fetchData() {
 }
 </script>
 
-<style scoped></style>
+<style lang="less" scoped>
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .md {
+    background: white;
+    padding: 40px;
+    margin-top: 20px;
+    width: 800px;
+  }
+}
+</style>
