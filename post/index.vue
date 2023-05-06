@@ -35,9 +35,9 @@ onMounted(() => {
 async function fetchData() {
   const { query } = useRoute()
 
-  if (!query.title) return
+  if (!query.path) return
 
-  const [err, data] = await to(fetch(`/data/${query.title}.md`))
+  const [err, data] = await to(fetch(query.path))
 
   if (err) return
 

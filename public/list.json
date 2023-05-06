@@ -1,0 +1,32 @@
+[
+  {
+    "title": "TypeScript内置函数",
+    "desc": "TypeScript中一些常用的内置函数",
+    "path": "/articles/TypeScript内置函数.md",
+    "date": "20190116"
+  },
+  {
+    "title": "使用Babel实现自动化",
+    "desc": "使用Babel实现自动化修改代码",
+    "path": "/articles/使用Babel实现自动化.md",
+    "date": "20190114"
+  },
+  {
+    "title": "快排",
+    "desc": "最简单的快排",
+    "path": "/articles/快排.md",
+    "date": "20191230"
+  },
+  {
+    "title": "打包自己的库",
+    "desc": "学习打包第三方库的那些事儿",
+    "path": "/articles/打包自己的库.md",
+    "date": "20181210"
+  },
+  {
+    "title": "手写Promise",
+    "desc": "如何实现一个简单的Promise",
+    "path": "/articles/手写Promise.md",
+    "date": "20200317"
+  }
+]

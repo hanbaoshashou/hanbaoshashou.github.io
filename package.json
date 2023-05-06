@@ -16,6 +16,7 @@
     "@ant-design/icons-vue": "^6.1.0",
     "ant-design-vue": "^3.2.20",
     "await-to-js": "^3.0.0",
+    "dayjs": "^1.11.7",
     "highlight.js": "^11.8.0",
     "lodash": "^4.17.21",
     "marked": "^5.0.0",

@@ -1,6 +1,4 @@
-# 手写 promise
-
-> `2020-03-17` by `Saul Shen`
+# 手写Promise
 
 ## 手写一个简单 promise
 

@@ -1,11 +1,12 @@
 <template>
   <a-layout>
     <a-layout-header class="header">
-      <a-menu class="menu" v-model:selectedKeys="selectedKeys" mode="horizontal">
-        <a-menu-item key="mail"> 文章 </a-menu-item>
-        <a-menu-item key="app"> 问答 </a-menu-item>
-      </a-menu>
-      <a-avatar src="/avatar.jpeg" />
+      <div class="container">
+        <a-menu class="menu" v-model:selectedKeys="selectedKeys" mode="horizontal">
+          <a-menu-item key="mail" @click="goHome"> 文章 </a-menu-item>
+        </a-menu>
+        <a-avatar src="/avatar.jpeg" />
+      </div>
     </a-layout-header>
     <a-layout-content class="content">
       <slot />
@@ -40,20 +41,30 @@ const { selectedKeys } = toRefs(state)
 function goGithub() {
   window.open('https://github.com/hanbaoshashou')
 }
+
+function goHome() {
+  location.href = '/'
+}
 </script>
 
 <style lang="less" scoped>
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 60px;
   background: white;
-  padding: 0 20vw;
 
-  .menu {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
     height: 60px;
-    border-bottom: none;
+
+    .menu {
+      height: 60px;
+      border-bottom: none;
+    }
   }
 }
 
@@ -67,10 +78,11 @@ function goGithub() {
   justify-content: center;
   height: 50px;
   padding: 0;
+  margin-top: 20px;
   margin-bottom: 150px;
 
   .body {
-    width: 60vw;
+    width: 800px;
     height: 50px;
     display: flex;
     flex-direction: row-reverse;
