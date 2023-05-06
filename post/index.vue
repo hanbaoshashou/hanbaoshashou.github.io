@@ -8,6 +8,7 @@ import to from 'await-to-js'
 import { marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
 import hljs from 'highlight.js'
+import { useRoute } from '@/util'
 
 import 'highlight.js/styles/github.css'
 
@@ -28,7 +29,11 @@ onMounted(() => {
 })
 
 async function fetchData() {
-  const [err, data] = await to(fetch('/data/手写 promise.md'))
+  const { query } = useRoute()
+
+  if (!query.title) return
+
+  const [err, data] = await to(fetch(`/data/${query.title}.md`))
 
   if (err) return
 

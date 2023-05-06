@@ -9,3 +9,7 @@ declare module 'markdown' {
 declare module 'marked-highlight' {
   export const markedHighlight: any
 }
+
+declare module 'querystring-es3' {
+  export default any
+}
