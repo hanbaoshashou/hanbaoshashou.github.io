@@ -46,6 +46,7 @@ onMounted(() => {
     id: location.href,
     owner: 'hanbaoshashou',
     repo: 'hanbaoshashou.github.io',
+    admin: ['hanbaoshashou'],
     clientID: 'a9506f0e3f077d86638c',
     clientSecret: 'bf5273a1f06358b86398f538c6e20976e98c9cff',
   })
