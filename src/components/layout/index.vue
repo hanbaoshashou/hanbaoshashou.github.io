@@ -35,6 +35,7 @@ import { reactive, toRefs, onMounted } from 'vue'
 import { GithubOutlined, MailOutlined } from '@ant-design/icons-vue'
 import Gitalk from 'gitalk'
 import { initAnalysis } from '@/util'
+import md5 from 'blueimp-md5'
 import 'gitalk/dist/gitalk.css'
 
 const state = reactive({
@@ -43,7 +44,7 @@ const state = reactive({
 
 onMounted(() => {
   const gitalk = new Gitalk({
-    id: location.href,
+    id: md5(location.href),
     owner: 'hanbaoshashou',
     repo: 'hanbaoshashou.github.io',
     admin: ['hanbaoshashou'],

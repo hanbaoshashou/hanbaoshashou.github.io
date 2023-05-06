@@ -17,3 +17,7 @@ declare module 'querystring-es3' {
 declare module 'gitalk' {
   export default any
 }
+
+declare module 'blueimp-md5' {
+  export default any
+}
