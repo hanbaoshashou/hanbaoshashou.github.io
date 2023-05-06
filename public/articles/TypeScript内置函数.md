@@ -1,7 +1,8 @@
 # TypeScript 中常用的内置函数
 
+记录一些常用的内置函数，方便进行类型体操
 
-# as T
+## as T
 
 类型断言
 
@@ -11,7 +12,7 @@ const a = 1 as any
 type A = typeof a // any
 ```
 
-# extends
+## extends
 
 1. 继承
 2. 条件判断
@@ -36,7 +37,7 @@ type T3 = TypeName<() => void>;  // "function"
 type T4 = TypeName<string[]>;  // "object"
 ```
 
-# typeof T
+## typeof T
 
 获取 T 的类型
 
@@ -45,7 +46,7 @@ type A = typeof 'a' // string
 type B = typeof A // A
 ```
 
-# keyof T
+## keyof T
 
 获取 T 中的 key
 
@@ -58,7 +59,7 @@ interface A {
 type T = keyof A //  "a" | "b"
 ```
 
-# readonly
+## readonly
 
 将属性设为只读
 
@@ -68,7 +69,7 @@ interface A {
 }
 ```
 
-# in T
+## in T
 
 获取存在于 T 中的 key
 
@@ -81,7 +82,7 @@ type B = {
 //{a: string, b: string}
 ```
 
-# ReadOnly
+## ReadOnly
 
 将 T 的属性变为只读选项
 
@@ -98,7 +99,7 @@ type B = Readonly<A>
 */
 ```
 
-# Partial
+## Partial
 
 把 T 的 key 都设置为可选
 
@@ -117,7 +118,7 @@ type B = Partial<A>
 */
 ```
 
-# Required
+## Required
 
 将 T 的属性变为必选项
 
@@ -130,7 +131,7 @@ type B = Required<A>
 // {a: number}
 ```
 
-# Record
+## Record
 
 将 T 中所有的属性的值转化为 K 类型
 
@@ -143,7 +144,7 @@ type B = Record<keyof A, string>
 // {a: string}
 ```
 
-# Pick
+## Pick
 
 ```typescript
 interface T {
@@ -159,7 +160,7 @@ type A = Pick<T, keyof U>
 // {a: number}
 ```
 
-# Exclude
+## Exclude
 
 从 T 中剔除可以赋值给 U 的类型
 
@@ -167,7 +168,7 @@ type A = Pick<T, keyof U>
 type T00 = Exclude<'a' | 'b' | 'c' | 'd', 'a' | 'c' | 'f'> // "b" | "d"
 ```
 
-# Extract
+## Extract
 
 提取 T 中可以赋值给 U 的类型
 
@@ -175,7 +176,7 @@ type T00 = Exclude<'a' | 'b' | 'c' | 'd', 'a' | 'c' | 'f'> // "b" | "d"
 type T01 = Extract<'a' | 'b' | 'c' | 'd', 'a' | 'c' | 'f'> // "a" | "c"
 ```
 
-# NonNullable
+## NonNullable
 
 从 T 中剔除 null 和 undefined
 
@@ -183,7 +184,7 @@ type T01 = Extract<'a' | 'b' | 'c' | 'd', 'a' | 'c' | 'f'> // "a" | "c"
 type T04 = NonNullable<string | number | undefined> // string | number
 ```
 
-# ReturnType
+## ReturnType
 
 获取函数返回值类型
 
@@ -191,7 +192,7 @@ type T04 = NonNullable<string | number | undefined> // string | number
 type T10 = ReturnType<() => string> // string
 ```
 
-# InstanceType
+## InstanceType
 
 获取构造函数类型的实例类型
 
@@ -203,7 +204,7 @@ type T23 = InstanceType<string> // Error
 type T24 = InstanceType<Function> // Error
 ```
 
-# 实现 Omit
+## 实现 Omit
 
 ts 中不存在 Omit，但是可以通过现有的函数实现
 
@@ -211,6 +212,3 @@ ts 中不存在 Omit，但是可以通过现有的函数实现
 type A = Pick<T, Exclude<keyof T, K>>
 ```
 
-# 最后
-
-欢迎在留言中补充指正

@@ -1,11 +1,8 @@
-# 使用 babel 自动化修改代码
+# 使用Babel自动化修改代码
 
+使用Babel我们可以很轻松的将一些重复的体力劳动自动化，比如重复修改相似的代码，今天我就有这样一个需求。
 
-# 介绍
-
-babel 是个好东西， 用它我们可以很轻松的将一些重复的体力劳动自动化，比如重复修改相似的代码，今天我就有这样一个需求。
-
-# 需求
+## 需求
 
 首先我有一个 ts 文件`accumulate.ts`是这样的
 
@@ -46,11 +43,11 @@ export default combineRoot({
 要完成这个需求的步骤其实很简单。<br>
 怎么做？3 步
 
-1. code 转 ast
+1. code 转 ast
 2. 修改 ast
 3. ast 转 code
 
-# 生成 ast
+## 生成 ast
 
 第一件事就是需要把旧的文件转成 ast（抽象语法树），这里要用到`babel/parser`。
 `@babel/parser` 是解析 js 文件生成 ast 的一个包，同时也支持 ts，通过传一些参数，就能得到需要的 ast。
@@ -63,13 +60,13 @@ const ast = babelParser.parse(code, {
   plugins: ['typescript']
 })
 
-// 得到这样一个复杂的树结构，（嵌套很深就不全部写出来了）
+// 得到这样一个复杂的树结构，（嵌套很深就不全部写出来了）
 /*
 - programmer
   - node ImportDeclaration
     - source node StringLiteral
     - specifiers [node ImportSpecifier]
-    - ...
+    - ...
   - node ExportNamedDeclaration
     - ...
   - node ExportNamedDeclaration
@@ -79,7 +76,7 @@ const ast = babelParser.parse(code, {
 */
 ```
 
-# 遍历 ast
+## 遍历 ast
 
 得到 ast 以后，就需要遍历 ast，在合适的位置，对这颗树的节点做增删改查，得到我们想要的 ast
 
@@ -114,7 +111,7 @@ traverse(ast, {
 - `@babel/types` 是一个类似 lodash 的工具库，方便我们快速生成需要的节点
 - 这段代码实现的就是在`export interface {...}` 上面插入`export const ACCUMULATE_HAS = 'ACCUMULATE_HAS'`
 
-# 生成 code
+## 生成 code
 
 ```javascript
 const generate = require('@babel/generator').default
@@ -128,6 +125,6 @@ const { code, map } = generate(ast, options, code)
 
 就这样简单几步，就可以做到自动化的修改代码。唯一繁琐的事就是，在修改的时候，要不断的查看当前的树的结构，保证是在正确的位置， 对树做出了正确的修改，是个体力活。
 
-# 参考资料
+## 参考资料
 
 [babel-handbook](https://github.com/jamiebuilds/babel-handbook)

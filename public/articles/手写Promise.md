@@ -1,6 +1,6 @@
 # 手写Promise
 
-## 手写一个简单 promise
+废话不多说，直接上代码
 
 ```javascript
 const PENDING = 'pending'
