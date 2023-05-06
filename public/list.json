@@ -28,5 +28,11 @@
     "desc": "如何实现一个简单的Promise",
     "path": "/articles/手写Promise.md",
     "date": "20200317"
+  },
+  {
+    "title": "Electron里的Session",
+    "desc": "理解electorn里的session",
+    "path": "/articles/Electron里的Session.md",
+    "date": "20230506"
   }
 ]
