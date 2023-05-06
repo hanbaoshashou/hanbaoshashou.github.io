@@ -11,6 +11,8 @@
     <a-layout-content class="content">
       <slot />
 
+      <div class="gitment" id="container"></div>
+
       <a-layout-footer class="footer">
         <div class="body">
           <a-tooltip title="Github主页">
@@ -29,11 +31,27 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs, onMounted } from 'vue'
 import { GithubOutlined, MailOutlined } from '@ant-design/icons-vue'
+import Gitment from 'gitment'
+
+import 'gitment/style/default.css'
 
 const state = reactive({
   selectedKeys: [],
+})
+
+onMounted(() => {
+  const gitment = new Gitment({
+    owner: 'hanbaoshashou',
+    repo: 'hanbaoshashou.github.io ',
+    oauth: {
+      client_id: 'a9506f0e3f077d86638c',
+      client_secret: 'bf5273a1f06358b86398f538c6e20976e98c9cff',
+    },
+  })
+
+  gitment.render('container')
 })
 
 const { selectedKeys } = toRefs(state)
@@ -71,6 +89,11 @@ function goHome() {
 .content {
   flex: 1;
   overflow-y: auto;
+
+  .gitment {
+    width: 800px;
+    margin: 0 auto;
+  }
 }
 
 .footer {

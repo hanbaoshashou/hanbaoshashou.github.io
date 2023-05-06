@@ -13,3 +13,7 @@ declare module 'marked-highlight' {
 declare module 'querystring-es3' {
   export default any
 }
+
+declare module 'gitment' {
+  export default any
+}
