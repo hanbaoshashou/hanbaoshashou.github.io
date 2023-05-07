@@ -50,14 +50,10 @@ async function fetchData() {
 <style lang="less" scoped>
 .page {
   width: 100%;
-  display: flex;
-  justify-content: center;
 
   .md {
     background: white;
     padding: 40px;
-    margin-top: 20px;
-    width: 800px;
   }
 }
 </style>

@@ -65,8 +65,6 @@ const { listData } = toRefs(state)
 .page-list {
   .list {
     background-color: white;
-    width: 800px;
-    margin: 20px auto;
     padding: 20px;
   }
 }
