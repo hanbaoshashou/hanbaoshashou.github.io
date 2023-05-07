@@ -30,6 +30,7 @@ const html = ref<string>('')
 
 onMounted(() => {
   fetchData()
+  changeTitle()
 })
 
 async function fetchData() {
@@ -44,6 +45,14 @@ async function fetchData() {
   const text = await data.text()
 
   html.value = marked.parse(text)
+}
+
+function changeTitle() {
+  const { query } = useRoute()
+
+  if (!query.title) return
+
+  document.title = query.title
 }
 </script>
 

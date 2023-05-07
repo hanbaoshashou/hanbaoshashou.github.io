@@ -27,6 +27,7 @@
 import { reactive, toRefs, onMounted } from 'vue'
 import to from 'await-to-js'
 import dayjs from 'dayjs'
+import qs from 'querystring-es3'
 import _ from 'lodash'
 
 const state = reactive({
@@ -51,7 +52,12 @@ const pagination = {
 }
 
 function goPost(item: any) {
-  location.href = '/post/?path=' + item.path
+  const query = qs.stringify({
+    path: item.path,
+    title: item.title,
+  })
+
+  location.href = '/post/?' + query
 }
 
 function formateDate(date: string) {
